@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint ./source --ext .ts",
-    "test": "jest",
+    "test": "jest ./source --coverage --verbose",
     "start:dev": "nodemon ./source/main.ts",
     "prepare": "husky"
   },
