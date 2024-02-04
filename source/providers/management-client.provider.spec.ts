@@ -1,9 +1,10 @@
 import { Test } from '@nestjs/testing';
-import { Auth0Module } from './auth0.module';
+import { Auth0Module } from '../auth0.module';
+import { Auth0ManagementClient } from './management-client.provider';
 
-describe('Auth0Module', () => 
+describe('Auth0Config', () => 
 {
-    let module: Auth0Module;
+    let provider: Auth0ManagementClient;
 
     beforeEach(async() => 
     {
@@ -18,11 +19,11 @@ describe('Auth0Module', () =>
             ]
         }).compile();
 
-        module = moduleRef.get<Auth0Module>(Auth0Module);
+        provider = moduleRef.get<Auth0ManagementClient>(Auth0ManagementClient);
     });
 
     test('should be defined', () => 
     {
-        expect(module).toBeDefined();
+        expect(provider).toBeDefined();
     });
 });
