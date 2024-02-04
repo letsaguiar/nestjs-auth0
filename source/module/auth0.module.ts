@@ -1,6 +1,6 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { Auth0Config } from './config/auth0.config';
-import { Auth0ManagementClient } from './providers/management-client.provider';
+import { Auth0Config } from '../config/auth0.config';
+import { Auth0ManagementClient } from '../providers/management-client.provider';
 
 @Module({})
 export class Auth0Module 

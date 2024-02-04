@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { Auth0Module } from '../auth0.module';
+import { Auth0Module } from '../module/auth0.module';
 import { Auth0ManagementClient } from './management-client.provider';
 
 describe('Auth0Config', () => 

@@ -4,7 +4,7 @@
   "description": "Manages core entities of the pitagoras project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "eslint ./source --ext .ts",
     "test": "jest ./source --coverage --verbose",
     "start:dev": "nodemon ./source/main.ts",
