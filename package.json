@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-auth0",
+  "name": "@letsaguiar/nestjs-auth0",
   "version": "0.0.0",
   "description": "Manages core entities of the pitagoras project",
   "main": "dist/index.js",
