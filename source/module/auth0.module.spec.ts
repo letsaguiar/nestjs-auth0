@@ -10,10 +10,10 @@ describe('Auth0Module', () =>
         const moduleRef = await Test.createTestingModule({
             imports: [
                 Auth0Module.register({
-                    AUTH0_CLIENT_ID: 'test',
-                    AUTH0_CLIENT_SECRET: 'test',
-                    AUTH0_AUDIENCE: 'test',
-                    AUTH0_DOMAIN: 'test.com'
+                    AUTH0_CLIENT_ID: process.env['AUTH0_CLIENT_ID'] || 'test',
+                    AUTH0_CLIENT_SECRET: process.env['AUTH0_CLIENT_SECRET'] || 'test',
+                    AUTH0_AUDIENCE: process.env['AUTH0_AUDIENCE'] || 'test',
+                    AUTH0_DOMAIN: process.env['AUTH0_DOMAIN'] || 'test.com'
                 })
             ]
         }).compile();

@@ -1,13 +1,10 @@
 import { Test } from '@nestjs/testing';
-import axios from 'axios';
+import { Auth0Module } from '../module/auth0.module';
 import { Auth0Config } from './auth0.config';
-import { Auth0Module } from './auth0.module';
-import { Auth0Service } from './auth0.service';
 
 describe('Auth0Config', () => 
 {
     let config: Auth0Config;
-    let service: Auth0Service;
 
     beforeEach(async() => 
     {
@@ -23,27 +20,28 @@ describe('Auth0Config', () =>
         }).compile();
 
         config = moduleRef.get<Auth0Config>(Auth0Config);
-        service = moduleRef.get<Auth0Service>(Auth0Service);
     });
 
     test('should be defined', () => 
     {
-        expect(service).toBeDefined();
+        expect(config).toBeDefined();
     });
 
-    test('getAccessToken', async() =>
+    test('should be loaded properly', () =>
     {
-        if (![ config.AUTH0_CLIENT_ID, config.AUTH0_CLIENT_SECRET, config.AUTH0_AUDIENCE, config.AUTH0_DOMAIN ].includes('test'))
+        if (Object.values(config).includes('test'))
         {
-            jest.spyOn(axios, 'post');
+            expect(config.AUTH0_CLIENT_ID).toBe('test');
+            expect(config.AUTH0_CLIENT_SECRET).toBe('test');
+            expect(config.AUTH0_AUDIENCE).toBe('test');
+            expect(config.AUTH0_DOMAIN).toBe('test.com');
         }
         else
         {
-            jest.spyOn(axios, 'post').mockResolvedValue({ data: { }} as any);
+            expect(config.AUTH0_CLIENT_ID).toBe(process.env['AUTH0_CLIENT_ID']);
+            expect(config.AUTH0_CLIENT_SECRET).toBe(process.env['AUTH0_CLIENT_SECRET']);
+            expect(config.AUTH0_AUDIENCE).toBe(process.env['AUTH0_AUDIENCE']);
+            expect(config.AUTH0_DOMAIN).toBe(process.env['AUTH0_DOMAIN']);
         }
-
-        const result = await service.getAccessToken();
-        expect(axios.post).toHaveBeenCalled();
-        expect(result).toBeDefined();
     });
 });
