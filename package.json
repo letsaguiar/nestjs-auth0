@@ -1,7 +1,6 @@
 {
   "name": "@letsaguiar/nestjs-auth0",
   "version": "0.0.0",
-  "description": "Manages core entities of the pitagoras project",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -15,10 +14,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/letsaguiar/nestjs-auth0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "tag": "latest"
   },
   "files": [
     "./dist"
