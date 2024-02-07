@@ -1,7 +1,6 @@
 {
-  "name": "nestjs-auth0",
+  "name": "@letsaguiar/nestjs-auth0",
   "version": "0.0.0",
-  "description": "Manages core entities of the pitagoras project",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -12,11 +11,17 @@
   },
   "author": "Letícia Aguiar",
   "license": "PRIVATE",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "./dist"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
     "@commitlint/config-conventional": "^18.6.0",
     "@nestjs/testing": "^10.3.1",
-    "@pitagoras-educacao/eslint-config": "git@github.com:pitagoras-educacao/eslint-config.git#v1.0.0",
+    "@pitagoras-educacao/eslint-config": "git+ssh://git@github.com/pitagoras-educacao/eslint-config.git#v1.0.0",
     "@types/jest": "^29.5.11",
     "husky": "^9.0.7",
     "jest": "^29.7.0",
